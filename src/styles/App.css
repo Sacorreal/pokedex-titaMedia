@@ -80,11 +80,13 @@ body {
 .search-bar {
   display: flex;
   align-items: center;
-  background-color: #fff;
+  background-color: transparent;
+  /* quitar fondo sólido */
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   padding: 0.75rem 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+  /* eliminar sombra para evitar sensación oscura */
 }
 
 .search-bar:focus-within {
@@ -99,6 +101,8 @@ body {
   font-size: 1rem;
   margin-left: 0.5rem;
   color: #333;
+  background: transparent;
+  /* asegurar fondo transparente */
 }
 
 .search-input::placeholder {
@@ -174,11 +178,11 @@ body {
 }
 
 .pokemon-image {
-  width: 80px;
-  height: 80px;
+  width: 140px;
+  height: 140px;
   object-fit: contain;
   margin: 0.5rem 0;
-  image-rendering: pixelated;
+  image-rendering: auto;
 }
 
 .pokemon-name {
@@ -304,8 +308,8 @@ body {
   }
 
   .pokemon-image {
-    width: 60px;
-    height: 60px;
+    width: 120px;
+    height: 120px;
   }
 }
 
@@ -316,8 +320,8 @@ body {
   }
 
   .pokemon-image {
-    width: 90px;
-    height: 90px;
+    width: 140px;
+    height: 140px;
   }
 }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import "./ValidationError.css";
+import "../styles/ValidationError.css";
 
 interface ValidationErrorProps {
   errors: string[];

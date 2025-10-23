@@ -15,7 +15,7 @@ const SearchBar: React.FC<Props> = ({ value, onChange, onClear, errors }) => {
         <span className="search-icon">🔍</span>
         <input
           type="text"
-          placeholder="Search"
+          placeholder="¿Cuál Pokemón quieres buscar?"
           value={value}
           onChange={onChange}
           className="search-input"

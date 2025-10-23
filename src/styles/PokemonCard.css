@@ -18,9 +18,12 @@
 }
 
 .pokemon-image {
-    width: 96px;
-    height: 96px;
+    width: 140px;
+    /* aumentar tamaño para reducir pixelación */
+    height: 140px;
     object-fit: contain;
+    image-rendering: auto;
+    /* evitar pixelado */
 }
 
 .pokemon-name {

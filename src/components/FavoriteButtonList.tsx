@@ -1,10 +1,10 @@
 import React from "react";
-import type { PokemonListItem } from "../App";
 import { useFavoritesStore } from "../store/favoritesStore";
-import "./FavoriteButton.css";
+import "../styles/FavoriteButton.css";
+import type { SimplePokemon } from "../types/types";
 
 interface FavoriteButtonListProps {
-  pokemon: PokemonListItem;
+  pokemon: SimplePokemon;
   size?: "small" | "medium" | "large";
   showText?: boolean;
 }

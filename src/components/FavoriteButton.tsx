@@ -1,7 +1,7 @@
 import React from "react";
 import { useFavoritesStore } from "../store/favoritesStore";
+import "../styles/FavoriteButton.css";
 import type { Pokemon } from "../types/types";
-import "./FavoriteButton.css";
 
 interface FavoriteButtonProps {
   pokemon: Pokemon;

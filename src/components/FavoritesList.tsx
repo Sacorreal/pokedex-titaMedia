@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useFavoritesStore } from "../store/favoritesStore";
+import "../styles/FavoritesList.css";
 import FavoriteButton from "./FavoriteButton";
-import "./FavoritesList.css";
 
 const FavoritesList: React.FC = () => {
   const navigate = useNavigate();

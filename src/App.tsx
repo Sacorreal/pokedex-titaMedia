@@ -1,8 +1,8 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import "./App.css";
 import FavoritesList from "./components/FavoritesList";
 import PokemonDetail from "./components/PokemonDetail";
 import PokemonList from "./components/PokemonList";
+import "./styles/App.css";
 
 function App() {
   return (

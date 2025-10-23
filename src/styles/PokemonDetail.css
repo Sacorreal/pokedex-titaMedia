@@ -90,10 +90,9 @@
 }
 
 .pokemon-detail-image {
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
-    image-rendering: pixelated;
+    width: 300px;
+    height: 300px;
+    object-fit: fill;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 }
 
