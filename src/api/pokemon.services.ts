@@ -39,6 +39,55 @@ export const getPokemons = async (
   }
 };
 
+// --- New helpers to encapsulate list+details fetching and mapping ---
+export const fetchData = async (offset = 0, limit = 30) => {
+  return await getPokemons(offset, limit);
+};
+
+export const fetchDetails = async (ids: number[]) => {
+  const promises = ids.map((id) =>
+    getPokemonById(id).catch((err) => {
+      console.error(`Failed to fetch details for id=${id}:`, err);
+      return null;
+    })
+  );
+
+  return Promise.all(promises);
+};
+
+export const buildItems = (
+  listResponse: PokemonListApiResponse,
+  details: Array<PokemonApiResponse | null>
+) => {
+  return listResponse.results.map((r, idx) => {
+    const parts = r.url.split("/").filter(Boolean);
+    const id = Number(parts[parts.length - 1]);
+    const detail = details[idx];
+    const artwork =
+      detail?.sprites?.other?.["official-artwork"]?.front_default ||
+      `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+
+    return {
+      id,
+      name: r.name,
+      image: artwork,
+    };
+  });
+};
+
+export const fetchPokemonsWithArtwork = async (offset = 0, limit = 30) => {
+  const list = await fetchData(offset, limit);
+  const ids = list.results.map((r) => {
+    const parts = r.url.split("/").filter(Boolean);
+    return Number(parts[parts.length - 1]);
+  });
+
+  const details = await fetchDetails(ids);
+  const items = buildItems(list, details);
+  return items;
+};
+
+
 export const getPokemonById = async (
   id: number
 ): Promise<PokemonApiResponse> => {

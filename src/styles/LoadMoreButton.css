@@ -1,0 +1,21 @@
+.load-more-container {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0;
+}
+
+.load-more-button {
+    background-color: #ffcb05;
+    border: none;
+    color: #2a2a2a;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.load-more-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
