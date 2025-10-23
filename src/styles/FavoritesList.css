@@ -1,0 +1,189 @@
+.favorites-container {
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.favorites-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.favorites-title-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.favorites-header h1 {
+    color: #e74c3c;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.back-button {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.2s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-button:hover {
+    background-color: #5a6268;
+}
+
+.favorites-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.favorites-count {
+    background-color: #e74c3c;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.clear-favorites-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.clear-favorites-button:hover {
+    background-color: #c82333;
+}
+
+.favorites-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+    padding: 2rem;
+}
+
+.empty-heart {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.favorites-empty h2 {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.favorites-empty p {
+    color: #999;
+    margin-bottom: 2rem;
+    max-width: 400px;
+    line-height: 1.6;
+}
+
+.back-to-list-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.back-to-list-button:hover {
+    background-color: #c0392b;
+}
+
+/* Estilos para las tarjetas de favoritos */
+.favorites-container .pokemon-card {
+    position: relative;
+}
+
+.favorites-container .pokemon-types {
+    display: flex;
+    gap: 0.25rem;
+    justify-content: center;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.favorites-container .type-badge {
+    background-color: #e74c3c;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .favorites-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .favorites-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .favorites-container {
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .favorites-header h1 {
+        font-size: 1.25rem;
+    }
+
+    .favorites-count,
+    .clear-favorites-button {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .empty-heart {
+        font-size: 3rem;
+    }
+
+    .favorites-empty h2 {
+        font-size: 1.25rem;
+    }
+
+    .back-to-list-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}

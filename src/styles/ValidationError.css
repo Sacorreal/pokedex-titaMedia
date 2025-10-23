@@ -1,0 +1,127 @@
+.validation-error {
+    background-color: #fee;
+    border: 1px solid #fcc;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    box-shadow: 0 2px 4px rgba(255, 0, 0, 0.1);
+}
+
+.validation-error-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.validation-error-icon {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+.validation-error-title {
+    font-weight: 600;
+    color: #c33;
+    font-size: 1rem;
+}
+
+.validation-error-list {
+    margin: 0;
+    padding-left: 1.5rem;
+    color: #c33;
+}
+
+.validation-error-item {
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+}
+
+.validation-error-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Estilos para campos con error */
+.field-error {
+    border-color: #fcc !important;
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1) !important;
+}
+
+.field-error:focus {
+    border-color: #f99 !important;
+    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.2) !important;
+}
+
+/* Mensaje de error individual */
+.field-error-message {
+    color: #c33;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.field-error-message::before {
+    content: "⚠️";
+    margin-right: 0.25rem;
+}
+
+/* Estilos para campos válidos */
+.field-success {
+    border-color: #9c9 !important;
+    box-shadow: 0 0 0 2px rgba(0, 255, 0, 0.1) !important;
+}
+
+.field-success:focus {
+    border-color: #6c6 !important;
+    box-shadow: 0 0 0 3px rgba(0, 255, 0, 0.2) !important;
+}
+
+/* Mensaje de éxito */
+.field-success-message {
+    color: #393;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.field-success-message::before {
+    content: "✅";
+    margin-right: 0.25rem;
+}
+
+/* Animaciones */
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+.validation-error {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .validation-error {
+        padding: 0.75rem;
+        margin: 0.5rem 0;
+    }
+
+    .validation-error-title {
+        font-size: 0.9rem;
+    }
+
+    .validation-error-list {
+        font-size: 0.875rem;
+    }
+}
