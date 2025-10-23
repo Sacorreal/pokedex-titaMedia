@@ -13,8 +13,6 @@ Este repositorio contiene una pequeña aplicación de tipo Pokédex construida c
 7. Servicios y utilidades
 8. Store de favoritos
 9. Estilos y convenciones
-10. Errores comunes y solución
-11. Siguientes mejoras (recomendadas)
 
 ---
 
