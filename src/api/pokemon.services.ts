@@ -1,4 +1,6 @@
+import type { Dispatch, RefObject, SetStateAction } from "react";
 import type {
+  Pokemon,
   PokemonApiResponse,
   PokemonListApiResponse,
   PokemonSpeciesResponse,
@@ -87,6 +89,38 @@ export const fetchPokemonsWithArtwork = async (offset = 0, limit = 30) => {
   return items;
 };
 
+export const load = async (options: {
+  offset?: number;
+  limit?: number;
+  setLoading: Dispatch<SetStateAction<boolean>>;
+  setError: Dispatch<SetStateAction<string | null>>;
+  setPokemonData: Dispatch<
+    SetStateAction<Pick<Pokemon, "id" | "name" | "image">[]>
+  >;
+  mountedRef: RefObject<boolean>;
+}) => {
+  const {
+    offset = 0,
+    limit = 30,
+    setLoading,
+    setError,
+    setPokemonData,
+    mountedRef,
+  } = options;
+
+  setLoading(true);
+  setError(null);
+
+  try {
+    const items = await fetchPokemonsWithArtwork(offset, limit);
+    if (mountedRef.current) setPokemonData(items);
+  } catch (err: any) {
+    console.error("Error loading pokemons (service load):", err);
+    if (mountedRef.current) setError(String(err?.message || err));
+  } finally {
+    if (mountedRef.current) setLoading(false);
+  }
+};
 
 export const getPokemonById = async (
   id: number

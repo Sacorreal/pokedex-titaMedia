@@ -1,3 +1,5 @@
+export type SimplePokemon = Pick<Pokemon, "id" | "name" | "image">;
+
 export interface Pokemon {
   id: number;
   name: string;

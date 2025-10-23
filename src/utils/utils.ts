@@ -1,8 +1,8 @@
+import type { Dispatch, SetStateAction } from "react";
 import type { NavigateFunction } from "react-router-dom";
-import type { Pokemon } from "../types/types";
+import { fetchPokemonsWithArtwork } from "../api/pokemon.services";
+import type { SimplePokemon } from "../types/types";
 import { userInputValidations } from "./validations";
-
-type SimplePokemon = Pick<Pokemon, "id" | "name" | "image">;
 
 export const filterPokemon = (
   pokemonData: SimplePokemon[],
@@ -56,4 +56,27 @@ export const handlePokemonClick = (
   navigate: NavigateFunction
 ) => {
   navigate(`/pokemon/${pokemonId}`);
+};
+
+// Helper to load more items and append to existing list
+export const loadMore = async (
+  offset: number,
+  limit: number,
+  setOffset: Dispatch<SetStateAction<number>>,
+  setPokemonData: Dispatch<SetStateAction<SimplePokemon[]>>,
+  setLoading: Dispatch<SetStateAction<boolean>>,
+  setError: Dispatch<SetStateAction<string | null>>
+) => {
+  const nextOffset = offset + limit;
+  setLoading(true);
+  try {
+    const items = await fetchPokemonsWithArtwork(nextOffset, limit);
+    setPokemonData((prev) => [...prev, ...items]);
+    setOffset(nextOffset);
+  } catch (err: any) {
+    console.error("Error loading more pokemons:", err);
+    setError(String(err?.message || err));
+  } finally {
+    setLoading(false);
+  }
 };
